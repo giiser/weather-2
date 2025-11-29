@@ -5,6 +5,7 @@ import DayForecastPage from "./pages/dayforecast.tsx";
 import HomePage from "./pages/home.tsx";
 import NotFoundPage from "./pages/not-found.tsx";
 
+
 function App() {
 
     const {loading, error} = useForecast();

@@ -1,7 +1,9 @@
+import Header from "../components/Header.tsx";
+
 const HomePage = () => {
     return (
         <>
-            Home
+            <Header headline={"appTitle"} />
         </>
     )
 }

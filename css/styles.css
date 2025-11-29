@@ -7,6 +7,7 @@
   --text-highlight: #d1d1d1;
   --text-accent: #ffca28;
   --border-color: #ffffff;
+  --border-radius: 1rem;
   --focus-color: #007aff;
   --shadow-color: rgba(0, 122, 255, 0.25);
 }
@@ -27,11 +28,14 @@
   box-sizing: border-box;
 }
 body {
-  margin: 0;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  max-width: 1440px;
+  margin: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
 }
 h1,
 h2,
@@ -94,6 +98,7 @@ a {
   flex-direction: column;
   align-items: center;
   padding: 1rem 0;
+  margin: 1rem;
 }
 .header {
   position: sticky;
