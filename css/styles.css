@@ -1,0 +1,245 @@
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #4b4b4b;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-highlight: #d1d1d1;
+  --text-accent: #ffca28;
+  --border-color: #ffffff;
+  --focus-color: #007aff;
+  --shadow-color: rgba(0, 122, 255, 0.25);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --bg-tertiary: #c0c0c0;
+    --text-primary: #1e1e1e;
+    --text-secondary: #6d6d6d;
+    --text-highlight: #e0efff;
+    --border-color: #1e1e1e;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+.text-bold {
+  font-weight: 700;
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-title {
+  font-size: 22px;
+  font-weight: 300;
+}
+.text-xl {
+  font-size: 48px;
+}
+.text-l {
+  font-size: 32px;
+  font-weight: 500;
+}
+.text-primary {
+  font-size: 18px;
+  font-weight: 500;
+}
+.text-m {
+  font-size: 16px;
+  font-weight: 700;
+}
+.text-s {
+  font-size: 14px;
+  font-weight: 400;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.m-0 {
+  margin: 0;
+}
+.hidden {
+  display: none;
+}
+.header,
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 10;
+}
+.footer {
+  border-top: 1px solid var(--border-color);
+}
+.btn-back,
+.btn-controls {
+  text-align: center;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-back:hover,
+.btn-controls:hover {
+  background-color: var(--bg-tertiary);
+}
+.btn-back {
+  width: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+.container .btn-controls {
+  width: 100%;
+  margin: 0.25rem 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  width: calc(100% - 1rem);
+  border-bottom: 1px solid var(--border-color);
+}
+.summary h2 {
+  margin-bottom: 0.5rem;
+}
+.summary .label {
+  padding-top: 0;
+}
+.primary-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+.primary-details-grid .detail-grid-item {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .primary-details-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.forecast-day-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 100%;
+}
+.forecast-day-grid .forecast-grid-item {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+@media (min-width: 450px) {
+  .forecast-day-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  margin: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+.card:hover {
+  background-color: var(--bg-tertiary);
+  cursor: pointer;
+}
+.card .card-left,
+.card .card-right {
+  display: flex;
+  align-items: center;
+}
+.card .card-left div,
+.card .card-right div,
+.card .card-left p,
+.card .card-right p {
+  margin: 0.5rem;
+}
+.select-wrapper {
+  margin: 0 1rem 0.5rem 1rem;
+  width: 100%;
+}
+.select-wrapper label {
+  display: block;
+  margin-bottom: 0.5rem;
+  margin-left: 3px;
+}
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 40px 10px 15px;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--bg-secondary);
+  border-radius: 8px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.select-wrapper select:focus {
+  outline: none;
+  border-color: var(--focus-color);
+  box-shadow: 0 0 0 3px var(--shadow-color);
+}
+/*# sourceMappingURL=styles.css.map */
