@@ -140,8 +140,19 @@ a {
   }
 }
 
-.btn-back {
-  width: 100%;
+
+
+.main {
+  padding: 0.5rem;
+  margin: 1rem;
+  align-items: center;
+
+  .btn-back {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
 }
 
 // Container
@@ -200,7 +211,7 @@ a {
   gap: 1rem;
   padding: 0.5rem;
   margin: 1rem;
-  width: 100%;
+  //width: 100%;
 
   .forecast-grid-item {
     padding: 0.5rem;
@@ -217,6 +228,11 @@ a {
 }
 
 // Cards
+
+.card-wrapper {
+  width: 100%;
+}
+
 .card {
   display: flex;
   justify-content: space-between;
@@ -225,7 +241,6 @@ a {
   margin: 0.25rem;
   padding: 0.5rem;
   border-radius: 1rem;
-  width: 100%;
   transition: background-color 0.2s;
 
   &:hover {

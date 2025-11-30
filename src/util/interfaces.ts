@@ -1,6 +1,12 @@
 import type {ChangeEvent} from "react";
 
-
+export interface ForecastGridItem {
+    id: string;
+    label: string;
+    value: string;
+    unit?: string;
+    icon: string;
+}
 
 export interface ForecastDay {
     date: string;

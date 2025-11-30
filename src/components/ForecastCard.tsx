@@ -31,7 +31,7 @@ const ForecastCard = ({dayItem}: {dayItem:ForecastDay}) => {
 
 
     return (
-        <Link
+        <Link className={"card-wrapper"}
             to={`/details/${dayItem.date}`}
             state={{passedDay: dayItem}}
         >
