@@ -1,37 +1,61 @@
 import type {ChangeEvent} from "react";
 
+
+
+export interface ForecastDay {
+    date: string;
+    date_epoch: number;
+    day: {
+        maxtemp_c: number;
+        mintemp_c: number;
+        avghumidity: number;
+        maxwind_kph: number;
+        daily_chance_of_rain: number;
+        uv: number;
+        condition: {
+            icon: string;
+            text: string;
+        };
+    };
+    astro: {
+        sunrise: string;
+        sunset: string;
+    }
+}
+
 export interface WeatherData {
     location: {
         name: string;
         // region?: string;
     };
     current: {
-        temp_c:number;
+        temp_c: number;
         humidity: number;
         wind_kph: number;
         condition: {
             icon: string;
             text: string;
         };
-        forecast: {
-            forecastday: [
-                {
-                    date_epoch: number;
-                    day: {
-                        maxtemp_c: number;
-                        mintemp_c: number;
-                        avghumidity: number;
-                        maxwind_kph: number;
-                        daily_chance_of_rain: number;
-                        uv: number;
-                    };
-                    astro: {
-                        sunrise: string;
-                        sunset: string;
-                    }
-                }
-            ]
-        }
+    };
+    forecast: {
+        // forecastday: [
+        //     {
+        //         date_epoch: number;
+        //         day: {
+        //             maxtemp_c: number;
+        //             mintemp_c: number;
+        //             avghumidity: number;
+        //             maxwind_kph: number;
+        //             daily_chance_of_rain: number;
+        //             uv: number;
+        //         };
+        //         astro: {
+        //             sunrise: string;
+        //             sunset: string;
+        //         }
+        //     }
+        // ]
+        forecastday: ForecastDay[];
     }
 }
 
