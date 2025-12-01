@@ -32,7 +32,6 @@ export interface ForecastDay {
 export interface WeatherData {
     location: {
         name: string;
-        // region?: string;
     };
     current: {
         temp_c: number;
@@ -44,29 +43,12 @@ export interface WeatherData {
         };
     };
     forecast: {
-        // forecastday: [
-        //     {
-        //         date_epoch: number;
-        //         day: {
-        //             maxtemp_c: number;
-        //             mintemp_c: number;
-        //             avghumidity: number;
-        //             maxwind_kph: number;
-        //             daily_chance_of_rain: number;
-        //             uv: number;
-        //         };
-        //         astro: {
-        //             sunrise: string;
-        //             sunset: string;
-        //         }
-        //     }
-        // ]
         forecastday: ForecastDay[];
     }
 }
 
 export interface ForecastContextType {
-    forecast: WeatherData; // Replace 'any' with your actual Weather Data Interface (e.g., WeatherData)
+    forecast: WeatherData;
     loading: boolean;
     error: string | null;
     city: string;

@@ -1,9 +1,6 @@
 import {createContext, type ReactNode, type ChangeEvent, useContext, useEffect, useState, useMemo} from "react";
 import i18n from "../util/i18n.ts";
-import type {ForecastContextType} from "../util/interfaces.ts";
-
-
-// 1. Define the Shape of your Context
+import type {ForecastContextType, WeatherData} from "../util/interfaces.ts";
 
 
 const ForecastContext = createContext<ForecastContextType | undefined>(undefined);
@@ -12,7 +9,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export function ForecastProvider({ children }: { children: ReactNode }) {
 
-    const [forecast, setForecast] = useState<any>(null);
+    const [forecast, setForecast] = useState<WeatherData>({} as WeatherData);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
