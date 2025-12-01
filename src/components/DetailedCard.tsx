@@ -1,10 +1,10 @@
-import {useTranslation} from "react-i18next";
-import type {ForecastGridItem} from "../util/interfaces.ts";
+import { useTranslation } from "react-i18next";
+import type { ForecastGridItem } from "../util/interfaces.ts";
 
-const DetailedCard = ({item}: {item:ForecastGridItem}) => {
+const DetailedCard = ({ item }: { item: ForecastGridItem }) => {
 
-    const {t} = useTranslation();
-    const {id, icon,label, value, unit} = item;
+    const { t } = useTranslation();
+    const { id, icon, label, value, unit } = item;
 
     return (
         <div className="forecast-grid-item">

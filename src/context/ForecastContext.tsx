@@ -1,10 +1,10 @@
-import {createContext, type ReactNode, type ChangeEvent, useContext, useEffect, useState, useMemo} from "react";
+import { createContext, type ReactNode, type ChangeEvent, useContext, useEffect, useState, useMemo } from "react";
 import i18n from "../util/i18n.ts";
-import type {ForecastContextType, WeatherData} from "../util/interfaces.ts";
+import type { ForecastContextType, WeatherData } from "../util/interfaces.ts";
 
 
 const ForecastContext = createContext<ForecastContextType | undefined>(undefined);
-const API_URL= import.meta.env.VITE_BASE_API_URL;
+const API_URL = import.meta.env.VITE_BASE_API_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export function ForecastProvider({ children }: { children: ReactNode }) {
@@ -13,11 +13,11 @@ export function ForecastProvider({ children }: { children: ReactNode }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const [city, setCity] = useState(()=>{
+    const [city, setCity] = useState(() => {
         const city = localStorage.getItem("city");
         return city || 'Tallinn';
     });
-    const [language, setLanguage] = useState(()=>{
+    const [language, setLanguage] = useState(() => {
         const language = localStorage.getItem("language");
         return language || 'en';
     });
@@ -26,8 +26,8 @@ export function ForecastProvider({ children }: { children: ReactNode }) {
 
     //fetch forecast useEffect
     useEffect(() => {
-        const fetchForecast = async () =>{
-            try{
+        const fetchForecast = async () => {
+            try {
                 const response = await fetch(`${API_URL}${API_KEY}&q=${city}&days=3&lang=${language}`);
                 if (!response.ok) {
                     throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -41,7 +41,7 @@ export function ForecastProvider({ children }: { children: ReactNode }) {
 
                 setForecast(data);
 
-            } catch (err : any) {
+            } catch (err: any) {
                 console.error(err);
                 setError(err.message);
             } finally {

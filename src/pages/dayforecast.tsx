@@ -1,20 +1,20 @@
-import {useLocation, useNavigate} from "react-router";
-import {useTranslation} from "react-i18next";
-import {useForecast} from "../context/ForecastContext.tsx";
+import { useLocation, useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
+import { useForecast } from "../context/ForecastContext.tsx";
 import Header from "../components/Header.tsx";
 import DetailedCard from "../components/DetailedCard.tsx";
 import Footer from "../components/Footer.tsx";
-import type {ForecastGridItem} from "../util/interfaces.ts";
+import type { ForecastGridItem } from "../util/interfaces.ts";
 
-const DayForecastPage= () => {
+const DayForecastPage = () => {
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
-    const {city} = useForecast();
+    const { city } = useForecast();
     const location = useLocation();
-    const {passedDay} = location.state || {};
+    const { passedDay } = location.state || {};
 
-    const gridItems: ForecastGridItem[]  = [
+    const gridItems: ForecastGridItem[] = [
         {
             id: "max-temp",
             label: "high",
@@ -73,7 +73,7 @@ const DayForecastPage= () => {
         }
     ]
 
-    const formattedDate = ()=>{
+    const formattedDate = () => {
         const date = new Date(passedDay?.date);
         return new Intl.DateTimeFormat("et-EE").format(date);
     }
@@ -85,12 +85,12 @@ const DayForecastPage= () => {
         <>
             <Header headline={city} />
             <div className="main">
-                <button onClick={()=>navigate('/')} className={"btn-back"}>{t('back')}</button>
+                <button onClick={() => navigate('/')} className={"btn-back"}>{t('back')}</button>
                 <h2 className={"text-title header"}>{formattedDate()}</h2>
             </div>
             <div className="forecast-day-grid">
                 {passedDay && (
-                    gridItems.map((item:ForecastGridItem) => (
+                    gridItems.map((item: ForecastGridItem) => (
                         <DetailedCard key={item.id} item={item} />
                     ))
                 )}

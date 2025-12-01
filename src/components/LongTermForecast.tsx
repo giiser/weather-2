@@ -1,14 +1,16 @@
-import {useForecast} from "../context/ForecastContext.tsx";
-import type {ForecastDay} from "../util/interfaces.ts";
+import { useForecast } from "../context/ForecastContext.tsx";
+import type { ForecastDay } from "../util/interfaces.ts";
 import ForecastCard from "./ForecastCard.tsx";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const LongTermForecast = () => {
 
-    const {forecast, error, loading } = useForecast();
-    const {t} = useTranslation();
+    const { forecast, error, loading } = useForecast();
+    const { t } = useTranslation();
 
-    const days: ForecastDay []= forecast.forecast.forecastday;
+    if (loading || !forecast) return null;
+
+    const days: ForecastDay[] = forecast.forecast.forecastday;
 
 
     return (
@@ -20,9 +22,9 @@ const LongTermForecast = () => {
             {/*trying out to list forecast cards*/}
             {!error && !loading && (
                 <>
-                    {days.length > 0? days.map(dayItem => (
+                    {days.length > 0 ? days.map(dayItem => (
                         <ForecastCard key={dayItem.date_epoch} dayItem={dayItem} />
-                    )):<p>Failed to load forecast card</p>}
+                    )) : <p>Failed to load forecast card</p>}
                 </>
 
             )}
